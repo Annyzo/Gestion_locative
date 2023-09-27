@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode", // Prettier
+    "octref.vetur", // Vue integration (synthax, color, autocompletion, ...)
+    "yzhang.markdown-all-in-one", // Markdown integration (synthax, color, autocompletion, ...)
+    "ms-vsliveshare.vsliveshare", // Live share, to collaborate for pair programming
+    "oderwat.indent-rainbow", // Multiple colors for indents
+    "2gua.rainbow-brackets", // Multiple colors for brackets
+    "eamodio.gitlens", // Git integration with history, graph or blame
+    "gitlab.gitlab-workflow", // Git lab ci integration for autocompletion and variables
+    "codezombiech.gitignore", // .gitignore integraiton with coloration
+    "dbaeumer.vscode-eslint", // Eslint installation
+    "mikestead.dotenv", // dotenv files integration (synthax, color, ...)
+    "ms-azuretools.vscode-docker", // Docker integration to handle containers from VSC
+    "aaron-bond.better-comments", // Add some color on comments when started with the right symbol (* ! ? TODO:)
+    "cucumberopen.cucumber-official", // Auto completion, coloration and lint for cucumber files
+    "streetsidesoftware.code-spell-checker", // Vérification orthographiques autant dans les commentaires dans le nommage des variables et fonction en camelCase ou PascalCase
+    "streetsidesoftware.code-spell-checker-french", // Vérifications orthographiques en français
+  ]
+}

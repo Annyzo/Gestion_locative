@@ -1,0 +1,40 @@
+{
+  "prettier.packageManager": "yarn",
+  "vetur.completion.autoImport": true,
+  "jestrunner.configPath": "./packages/front",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[cucumber]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.workingDirectories": [{ "pattern": "./src/*" }],
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "eslint.alwaysShowStatus": true,
+  "vetur.format.defaultFormatter.ts": "prettier",
+  "vetur.experimental.templateInterpolationService": true,
+  "vetur.validation.interpolation": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "cSpell.words": [
+    "Accountings",
+    "amortisation",
+    "Amortisation",
+    "amortisations",
+    "Amortisations",
+    "Cerfa",
+    "APIV",
+    "edmp",
+    "moleculer",
+    "Moleculer",
+    "openapi",
+    "ownily",
+    "sast",
+    "vuetify"
+  ]
+}

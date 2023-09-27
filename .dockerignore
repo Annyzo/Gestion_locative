@@ -1,0 +1,8 @@
+.clever.json
+.dockerignore
+.git
+.vscode
+Dockerfile
+clevercloud-deploy.sh
+**/node_modules
+libfaketime/
