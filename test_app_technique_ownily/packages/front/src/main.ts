@@ -9,6 +9,7 @@ import store from "@/store/root";
 import SequentialEntrance from "vue-sequential-entrance";
 import "vue-sequential-entrance/vue-sequential-entrance.css";
 import { Can } from "@casl/vue";
+import "bootstrap/dist/css/bootstrap.css";
 
 Vue.config.productionTip = true;
 
@@ -32,3 +33,6 @@ new Vue({
   i18n,
   render: (h) => h(App),
 }).$mount("#app");
+
+import "bootstrap";
+import "popper.js";

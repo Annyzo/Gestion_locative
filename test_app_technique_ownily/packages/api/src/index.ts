@@ -6,4 +6,5 @@ export * from "./models/ErrorInterface";
 export * from "./models/FunctionalError";
 export * from "./models/TechnicalError";
 export * from "./models/Example.model";
+export * from "./models/Locataire.model";
 export * from "./lib";

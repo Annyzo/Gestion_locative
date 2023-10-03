@@ -7,4 +7,5 @@ export const ROUTE_NAMES = {
   RegisterUserDetails: "RegisterUserDetails",
   User: "User",
   Examples: "Examples",
+  AddLocataires: "AddLocataires",
 };

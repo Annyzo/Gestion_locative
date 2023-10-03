@@ -44,6 +44,13 @@ export default class ApiRoute extends Service {
               "GET /examples/:id": "controller.examples.get",
               "PUT /examples/:id": "controller.examples.update",
               "DELETE /examples/:id": "controller.examples.delete",
+
+              // Locataires
+              "POST /locataires": "controller.locataires.create",
+              "GET /locataires": "controller.locataires.list",
+              "GET /locataires/:id": "controller.locataires.get",
+              "PUT /locataires/:id": "controller.locataires.update",
+              "DELETE /locataires/:id": "controller.locataires.delete",
             },
           },
           {

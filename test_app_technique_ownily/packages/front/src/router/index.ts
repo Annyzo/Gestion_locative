@@ -8,6 +8,7 @@ import Login from "@/components/sign/signin/Login.vue";
 import ValidateEmail from "@/components/sign/signin/ValidateEmail.vue";
 import User from "@/components/core/user/User.vue";
 import Examples from "@/components/core/examples/Examples.vue";
+import AddLocataires from "@/components/core/locataires/AddLocataire.vue";
 
 import { ROUTE_NAMES } from "./routes";
 import { PositionResult } from "vue-router/types/router";
@@ -76,6 +77,12 @@ const routes: Array<RouteConfig> = [
         path: "/examples",
         name: ROUTE_NAMES.Examples,
         component: Examples,
+        props: (route) => Object.assign({}, route.query, route.params),
+      },
+      {
+        path: "/addLocataires",
+        name: ROUTE_NAMES.AddLocataires,
+        component: AddLocataires,
         props: (route) => Object.assign({}, route.query, route.params),
       },
     ],

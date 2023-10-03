@@ -1,130 +1,93 @@
 <template>
   <div>
     <div class="header">
-      <TitleH1>Exemples</TitleH1>
+      <h4 class="section-header-title">Formulaire d'ajout de locataire</h4>
     </div>
 
     <div class="section">
       <div class="section-header">
-        <h4 class="section-header-title">Examples</h4>
         <div class="section-header-action">
-          <v-btn
-            depressed
-            color="primary"
-            id="track-add_real_estates"
-            @click="createExample()"
-          >
-            <v-icon left dense class="mr-1">mdi-plus</v-icon>
-            Ajouter un exemple
-          </v-btn>
-        </div>
-      </div>
+          <form @submit.prevent="ajouterLocataire">
+            <div class="form-group">
+              <label for="nom">Nom :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nom"
+                v-model="locataire.nom"
+                required
+              />
+            </div>
 
-      <div class="section-body">
-        <v-row no-gutters>
-          <v-col
-            v-for="example of examples"
-            :key="example.id"
-            :lg="4"
-            :md="6"
-            :sm="12"
-          >
-            <ExampleView
-              class="pa-2 fill-height"
-              :exampleId="example.id"
-              :isEditing.sync="example.isEditing"
-            />
-          </v-col>
-        </v-row>
+            <div class="form-group">
+              <label for="adresse">Adresse :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="adresse"
+                v-model="locataire.adresse"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="coordonnees">Coordonnées :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="coordonnees"
+                v-model="locataire.coordonnees"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                v-model="locataire.email"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4">
+              Ajouter Locataire
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import {
-  defineComponent,
-  onBeforeMount,
-  ref,
-  Ref,
-  watch,
-} from "@vue/composition-api";
-import Vue from "vue";
-
-import { examplesStore, userStore } from "@/store";
-
-import { TitleH1 } from "@/components/atom/title";
-import ExampleView from "./Example.vue";
-import { Example } from "@edmp/api";
-import { cloneDeep } from "lodash";
-
-export default defineComponent({
-  name: "Examples",
-  components: {
-    TitleH1,
-    ExampleView,
-  },
-  props: {
-    new: { type: Boolean, required: false },
-  },
-
-  setup(props) {
-    const isLoading: Ref<boolean> = ref(false);
-
-    const examples: Ref<
-      ((Example & { isEditing: boolean }) | { id: "new"; isEditing: boolean })[]
-    > = ref([]);
-
-    const createExample = () => {
-      try {
-        const exampleIndex = examples.value.findIndex(
-          (rentalBuilding) => rentalBuilding.id === "new"
-        );
-        if (exampleIndex !== -1) {
-          Vue.set(examples.value, exampleIndex, {
-            ...examples.value[exampleIndex],
-            isEditing: true,
-          });
-        } else {
-          examples.value.push({ id: "new", isEditing: true });
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    /**
-     * Init
-     */
-    const init = async () => {
-      examples.value = [
-        ...cloneDeep(examplesStore.examples).map((value) => ({
-          ...value,
-          isEditing: false,
-        })),
-        { id: "new", isEditing: props.new },
-      ];
-    };
-
-    watch(examplesStore.examples, () => init(), { deep: true });
-
-    onBeforeMount(async () => {
-      const { user } = userStore;
-      console.log('user',user)
-      if (user) {
-        await examplesStore.fetchExamples({ userId: user.id });
-      }
-      await init();
-    });
-
+<script>
+export default {
+  data() {
     return {
-      isLoading,
-      examples,
-
-      createExample,
+      locataire: {
+        nom: "",
+        adresse: "",
+        coordonnees: "",
+        email: "",
+      },
     };
   },
-});
+  methods: {
+    ajouterLocataire() {
+      // Vous pouvez traiter les données du locataire ici, par exemple, les envoyer au serveur.
+      console.log("Nouveau locataire :", this.locataire);
+
+      // Réinitialiser le formulaire après soumission
+      this.locataire = {
+        nom: "",
+        adresse: "",
+        coordonnees: "",
+        email: "",
+      };
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

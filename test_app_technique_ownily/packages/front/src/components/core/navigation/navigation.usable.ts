@@ -1,7 +1,8 @@
 import { ROUTE_NAMES } from "@/router/routes";
 import { computed, ComputedRef } from "@vue/composition-api";
 
-export type NAVIGATION_MENU = keyof Pick<typeof ROUTE_NAMES, "Examples">;
+// export type NAVIGATION_MENU = keyof Pick<typeof ROUTE_NAMES, "Examples">;
+export type NAVIGATION_MENU = keyof typeof ROUTE_NAMES;
 
 type NavigationItem = {
   name: string;
@@ -21,9 +22,25 @@ export type NavigationItems = (NavigationItem & {
 
 export const useNavigationItems = () => {
   const NAVIGATION_TITLES: ComputedRef<{
-    [key in NAVIGATION_MENU]: string;
+    Root: string;
+    SignIn: string;
+    ValidateEmail: string;
+    SignUp: string;
+    RegisterUser: string;
+    RegisterUserDetails: string;
+    User: string;
+    Examples: string;
+    AddLocataires: string;
   }> = computed(() => ({
+    Root: "Root",
+    SignIn: "SignIn",
+    ValidateEmail: "ValidateEmail",
+    SignUp: "SignUp",
+    RegisterUser: "RegisterUser",
+    RegisterUserDetails: "RegisterUserDetails",
+    User: "User",
     Examples: "Exemple",
+    AddLocataires: "Ajout Locataire",
   }));
 
   const navigationItems: ComputedRef<NavigationItems> = computed(() => {
@@ -32,6 +49,11 @@ export const useNavigationItems = () => {
         name: NAVIGATION_TITLES.value.Examples,
         icon: "mdi-home-outline",
         routeName: ROUTE_NAMES.Examples,
+      },
+      {
+        name: NAVIGATION_TITLES.value.AddLocataires,
+        icon: "mdi-plus-outline",
+        routeName: ROUTE_NAMES.AddLocataires,
       },
     ];
 
